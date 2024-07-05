@@ -1,0 +1,91 @@
+code_snippet,correctness,annotations
+"function addNumbers(a, b) {
+    return a + b;
+}",correct,
+"function addNumbers(a, b) {
+    console.log(a + b);
+}",incorrect,Replace console.log with return; Function should return the sum of a and b
+"function addNumbers(a, b) {
+    if (typeof a === 'number' && typeof b === 'number') {
+        return a + b;
+    } else {
+        return null;
+    }
+}",incorrect,Simplify type checking and returning; Add appropriate error handling
+"function subtractNumbers(a, b) {
+    return a - b;
+}",correct,
+"function subtractNumbers(a, b) {
+    console.log(a - b);
+}",incorrect,Replace console.log with return; Function should return the difference of a and b
+"function multiplyNumbers(a, b) {
+    return a * b;
+}",correct,
+"function multiplyNumbers(a, b) {
+    let result = a * b;
+    return result;
+}",incorrect,Simplify return statement; Directly return a * b
+"function divideNumbers(a, b) {
+    return a / b;
+}",incorrect,Add error handling for division by zero
+"function divideNumbers(a, b) {
+    if (b === 0) {
+        throw new Error('Division by zero is not allowed');
+    }
+    return a / b;
+}",correct,
+"function isPalindrome(str) {
+    return str === str.split('').reverse().join('');
+}",correct,
+"function isPalindrome(str) {
+    if (str === str.split('').reverse().join('')) {
+        return true;
+    } else {
+        return false;
+    }
+}",incorrect,Simplify return statement; Directly return str === str.split('').reverse().join('')
+"function reverseNumber(n) {
+    return parseInt(n.toString().split('').reverse().join(''), 10);
+}",correct,
+"function reverseNumber(n) {
+    let reversedNum = n.toString().split('').reverse().join('');
+    return parseInt(reversedNum, 10);
+}",incorrect,"Simplify return statement; Directly return parseInt(n.toString().split('').reverse().join(''), 10)"
+"function isEven(n) {
+    return n % 2 === 0;
+}",correct,
+"function isEven(n) {
+    if (n % 2 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}",incorrect,Simplify return statement; Directly return n % 2 === 0
+"function isPrime(n) {
+    if (n <= 1) {
+        return false;
+    }
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}",correct,
+"function isPrime(n) {
+    if (n <= 1) {
+        return false;
+    }
+    for (let i = 2; i < n; i++) {
+        if (n % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}",incorrect,Optimize the loop to iterate only up to the square root of n
+"function isPositiveNumber(n) {
+    return n > 0;
+}",correct,Ensure the function correctly identifies positive numbers.
+"function isPositiveNumber(n) {
+    return n >= 0;
+}",incorrect,The function should return false for zero; Change 'n >= 0' to 'n > 0'.

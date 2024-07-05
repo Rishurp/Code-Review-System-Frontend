@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Review System</title>
+</head>
+<body>
+    <h1>Code Review System</h1>
+    <form action="/analyze" method="post">
+        <textarea name="code_snippet" rows="10" cols="50">{{ code_snippet }}</textarea><br>
+        <input type="submit" value="Analyze Code">
+    </form>
+    {% if result %}
+        <h2>Analysis Result: {{ result }}</h2>
+        {% if feedback %}
+            <h3>Feedback:</h3>
+            <ul>
+                {% for comment in feedback %}
+                    <li>{{ comment }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endif %}
+    <h2>Submit New Problem</h2>
+    <form action="/submit_new_problem" method="post">
+        <textarea name="new_code_snippet" rows="10" cols="50"></textarea><br>
+        <input type="text" name="expected_result" placeholder="Expected Result"><br>
+        <textarea name="annotation" rows="4" cols="50" placeholder="Annotation"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
