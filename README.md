@@ -1,6 +1,5 @@
-Sure! Here's a `README.md` file for your project:
 
-```markdown
+
 # Code Review System
 
 The Code Review System is a full-stack application designed to analyze and provide feedback on code snippets. The system consists of a backend for data processing and model training, and a frontend for user interaction and visualization of feedback.
@@ -148,3 +147,30 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **License**: Mentions the license under which the project is distributed.
 
 You can adjust the `git clone` URL and other details according to your specific repository and needs.
+
+## API Reference
+
+#### Get all items
+
+```http
+  GET /api/items
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+#### Get item
+
+```http
+  GET /api/items/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
+
+#### add(num1, num2)
+
+Takes two numbers and returns the sum.
+
